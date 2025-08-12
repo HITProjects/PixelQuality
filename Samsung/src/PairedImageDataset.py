@@ -9,7 +9,7 @@ from torch import tensor, long
 
 class PairedImageDataset(Dataset):
     """
-    Dataset that returns pairs of images (clean, new) or (clean, ref) along with their class based on score label.
+    Dataset that returns pairs of images (clean, new) or (clean, ref) along with their score.
     Supports optional preloading of the entire dataset to a specified device (e.g., GPU).
 
     Args:
@@ -46,7 +46,7 @@ class PairedImageDataset(Dataset):
         # Load metadata
         self.meta = pd.read_json(metadata_json_path)
 
-        # Build list of samples: (clean_path, other_path, class_index)
+        # Build list of samples: (clean_path, other_path, score)
         self.samples = []
         for _, row in self.meta.iterrows():
             clean_id = str(row['clean_image'])
@@ -57,17 +57,16 @@ class PairedImageDataset(Dataset):
             # make triples (clean path, distorted path, score)
             clean_path = os.path.join(root_dir, 'clean', f'{clean_id}.png')
             distorted_path = os.path.join(root_dir, method, f'{distorted_id}.png')
-            class_index = self.__score_to_class_index(score)
 
             if os.path.exists(distorted_path):
-                self.samples.append((clean_path, distorted_path, class_index))
+                self.samples.append((clean_path, distorted_path, score))
 
         # Preload data if requested
         if self.preload:
             print(f"Preloading dataset to {self.device}...")
             self.preloaded_samples = []
 
-            for batch, (clean_path, other_path, class_index) in enumerate(self.samples):
+            for batch, (clean_path, other_path, score) in enumerate(self.samples):
                 print(f"\rbatch {batch}/{self.__len__}", end='') # Print how many batchs are done
                 img_clean = Image.open(clean_path)
                 img_other = Image.open(other_path)
@@ -77,7 +76,7 @@ class PairedImageDataset(Dataset):
                     img_other = self.transform(img_other)
 
                 # Store as a tuple of tensors
-                self.preloaded_samples.append((img_clean.to(self.device), img_other.to(self.device), tensor(class_index, dtype=long).to(self.device)))
+                self.preloaded_samples.append((img_clean.to(self.device), img_other.to(self.device), tensor(score, dtype=long).to(self.device)))
 
             print() # Newline after same-line print in the loop
             print("Preloading complete.")
@@ -93,7 +92,7 @@ class PairedImageDataset(Dataset):
             return self.preloaded_samples[idx]
         else:
             # Original logic: load and transform on demand
-            clean_path, other_path, class_index = self.samples[idx]
+            clean_path, other_path, score = self.samples[idx]
             img_clean = Image.open(clean_path)
             img_other = Image.open(other_path)
 
@@ -101,19 +100,6 @@ class PairedImageDataset(Dataset):
                 img_clean = self.transform(img_clean)
                 img_other = self.transform(img_other)
 
-            return img_clean, img_other, class_index
+            return img_clean, img_other, score
 
-
-    def __score_to_class_index(self, score):
-        """Converts a continuous score to a class index based on predefined bins.
-        Raises:
-            ValueError: If score is not in the range [0, 1]
-        """
-        if 0.0 <= score < 0.33:
-            return 0  # RED
-        elif 0.33 <= score < 0.66:
-            return 1  # ORANGE
-        elif 0.66 <= score <= 1.0:
-            return 2  # GREEN
-        else: # Score is outside the expected range
-            raise ValueError(f"Score {score} is outside the expected range [0, 1].")
+            
