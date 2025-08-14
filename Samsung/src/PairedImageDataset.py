@@ -5,7 +5,7 @@ import pandas as pd
 from torch.utils.data import Dataset
 from torchvision import transforms
 from PIL import Image
-from torch import tensor, long
+from torch import tensor, float32
 
 class PairedImageDataset(Dataset):
     """
@@ -66,8 +66,8 @@ class PairedImageDataset(Dataset):
             print(f"Preloading dataset to {self.device}...")
             self.preloaded_samples = []
 
-            for batch, (clean_path, other_path, score) in enumerate(self.samples):
-                print(f"\rbatch {batch}/{self.__len__}", end='') # Print how many batchs are done
+            for sample, (clean_path, other_path, score) in enumerate(self.samples):
+                print(f"\rsample {sample}/{self.__len__()}", end='') # Print how many batchs are done
                 img_clean = Image.open(clean_path)
                 img_other = Image.open(other_path)
 
@@ -76,7 +76,7 @@ class PairedImageDataset(Dataset):
                     img_other = self.transform(img_other)
 
                 # Store as a tuple of tensors
-                self.preloaded_samples.append((img_clean.to(self.device), img_other.to(self.device), tensor(score, dtype=long).to(self.device)))
+                self.preloaded_samples.append((img_clean.to(self.device), img_other.to(self.device), tensor(score, dtype=float32).to(self.device)))
 
             print() # Newline after same-line print in the loop
             print("Preloading complete.")
