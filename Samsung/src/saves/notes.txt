@@ -1,0 +1,135 @@
+Best yet: mk4_3
+
+--------------------------------------------------
+
+mk3_2,
+New data Normalization,
+MSE,
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0241
+batch 23/23
+Test Loss: 0.0413
+
+SGD: lr=1e-4, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0220
+Test Loss: 0.0398
+
+SGD: lr=1e-5, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0270
+Test Loss: 0.0433
+
+--------------------------------------------
+
+mk3-1_1,
+no Sigmoid,
+data Normalization,
+MSE,
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0311
+Test Loss: 0.0448
+
+----------------------------------------------
+
+mk3-2_1,
+data Normalization,
+SmoothL1,
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0505
+Test Loss: 0.0552
+
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0172
+Test Loss: 0.0233
+
+----------------------------------------------
+
+mk3-3_1,
+no Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0192
+Test Loss: 0.0282
+
+-----------------------------------------------
+
+mk3-3_2,
+no Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-3, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0105
+Average Test Loss: 0.0344
+
+
+-----------------------------------------------
+
+mk4_1,
+Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-3, momentum=0.9,
+30 epochs.
+Average Training Loss: 0.0121
+Average Test Loss: 0.0354
+
+-----------------------------------------------
+
+mk4_2,
+channels 6->16->32->64,
+No Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0153
+Average Test Loss: 0.0205
+
+-----------------------------------------------
+
+mk4_3,
+channels 6->16->24->48,
+No Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0134
+Average Test Loss: 0.0223
+
+-----------------------------------------------
+
+mk5_1,
+channels 6->8->16->32->48,
+No Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0085
+Average Test Loss: 0.0244
+
+
+
+
+
+
+
+

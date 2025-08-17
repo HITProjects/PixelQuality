@@ -66,7 +66,7 @@ class PairedImageDataset(Dataset):
             print(f"Preloading dataset to {self.device}...")
             self.preloaded_samples = []
 
-            for sample, (clean_path, other_path, score) in enumerate(self.samples):
+            for sample, (clean_path, other_path, score) in enumerate(self.samples, start=1):
                 print(f"\rsample {sample}/{self.__len__()}", end='') # Print how many batchs are done
                 img_clean = Image.open(clean_path)
                 img_other = Image.open(other_path)
