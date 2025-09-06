@@ -77,9 +77,9 @@ class PairedImageDataset(Dataset):
 
                 # Store as a tuple of tensors
                 self.preloaded_samples.append((
-                    img_clean.to(self.device, non_blocking=True),
-                    img_other.to(self.device, non_blocking=True),
-                    tensor(score, dtype=float32).to(self.device, non_blocking=True)
+                    img_clean.to(self.device),
+                    img_other.to(self.device),
+                    tensor(score, dtype=float32).to(self.device)
                 ))
 
             print() # Newline after same-line print in the loop
