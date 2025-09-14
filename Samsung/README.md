@@ -60,6 +60,8 @@ A **macro F1 score of 0.7535** and a **model accuracy of 0.8162** were achieved.
 * **Confusion Matrix Analysis:** The model performed well in predicting scores of 0 and 1, but struggled with the 0.5 score. This is most likely due to the label imbalance in the dataset. The model's predictions were digitized into three bins based on bounds that maximize accuracy on the training set: 0-0.402, 0.402-0.648, and 0.648-1. The confusion matrix shows high precision and recall for scores 0 ("Red") and 1 ("Green"), but a lower score for 0.5 ("Orange").
 * **Next Steps:** To improve preformance further, several approaches may be considered:
     * Explore more robust model architectures, such as those with residuals or inception modules.
-    * Consider using synthetic data to augment the training set.
+    * Consider using synthetic data to augment the training set (keeping the data's size in mind, as not to choose too complex a method)
+      * Create a more robust blending method of clean and distorted to produce new distorted images by testing whether a blend is good using the existing models for reference. I.e. make a blend, predict it’s score - better blend = predicted score is closer to 0.5)
+      * More complex approach - deep learning image creation (Pix2Pix, Cycle / Style GAN, diffusion etc.).
     * Separate the task into two stages: first, predict if the score is 0.5, and then, if not, predict if it is 0 or 1.
-    * Reinforce the promising ensemble regression models (Gradient Boosting, Random Forest, SVM) with feature engineering, or incorporating a neural network model to learn the regression error.
+    * Reinforce the promising ensemble regression models (Gradient Boosting, Random Forest, SVM) with feature engineering (Dimensionality reduction, image processing methods, etc)., or incorporating a neural network model to learn the regression error.
