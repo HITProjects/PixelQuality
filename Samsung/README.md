@@ -1,4 +1,4 @@
-### Samsung R&D Project: Perceived Quality of Pixel Interpolation (QPI)
+### Samsung R&D Project: Perceived Quality of Pixel Interpolation (QPI) <sub> / Tomer Shlomo Portal<sub>
 
 My part of the project involved developing a **deep learning model** and a **regression model** to predict the perceived quality score of two pixel interpolation methods.
 
@@ -65,3 +65,8 @@ A **macro F1 score of 0.7535** and a **model accuracy of 0.8162** were achieved.
       * More complex approach - deep learning image creation (Pix2Pix, Cycle / Style GAN, diffusion etc.).
     * Separate the task into two stages: first, predict if the score is 0.5, and then, if not, predict if it is 0 or 1.
     * Reinforce the promising ensemble regression models (Gradient Boosting, Random Forest, SVM) with feature engineering (Dimensionality reduction, image processing methods, etc)., or incorporating a neural network model to learn the regression error.
+ 
+### Links
+* [Code notebooks](https://github.com/HITProjects/PixelQuality/tree/main/Samsung/notebooks) (developed in Google Colab).
+* [Source files](https://github.com/HITProjects/PixelQuality/tree/main/Samsung/src): private modules that were imported for use in the project, and saved model parameters.
+* [Samsung dataset wiki page](https://github.com/HITProjects/PixelQuality/wiki/Samsung-Dataset) with a more detailed overview of the data.
