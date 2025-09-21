@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# IDE project settings
+.idea/
+.vscode/
+
+# Large / local data (ignored)
+dataset/
+
+# Generated outputs
+artifacts/
+checkpoints/
+exportToHTML/
+
+# Jupyter auto-save
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db
