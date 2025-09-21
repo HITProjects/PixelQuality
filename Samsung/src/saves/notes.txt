@@ -1,0 +1,315 @@
+Best yet: mk6_7
+
+--------------------------------------------------
+
+mk3_2,
+New data Normalization,
+MSE,
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0241
+batch 23/23
+Test Loss: 0.0413
+
+SGD: lr=1e-4, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0220
+Test Loss: 0.0398
+
+SGD: lr=1e-5, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0270
+Test Loss: 0.0433
+
+--------------------------------------------
+
+mk3-1_1,
+no Sigmoid,
+data Normalization,
+MSE,
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0311
+Test Loss: 0.0448
+
+----------------------------------------------
+
+mk3-2_1,
+data Normalization,
+SmoothL1,
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0505
+Test Loss: 0.0552
+
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0172
+Test Loss: 0.0233
+
+----------------------------------------------
+
+mk3-3_1,
+no Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-3, momentum=0.9,
+20 epochs.
+Average Training Loss: 0.0192
+Test Loss: 0.0282
+
+-----------------------------------------------
+
+mk3-3_2,
+no Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-3, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0105
+Average Test Loss: 0.0344
+
+
+-----------------------------------------------
+
+mk4_1,
+Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-3, momentum=0.9,
+30 epochs.
+Average Training Loss: 0.0121
+Average Test Loss: 0.0354
+
+-----------------------------------------------
+
+mk4_2,
+channels 6->16->32->64, 
+No Sigmoid,
+data Normalization,
+SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0153
+Average Test Loss: 0.0205
+
+-----------------------------------------------
+
+mk4_3,
+channels 6->16->24->48,
+No Sigmoid, data Normalization,
+SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0134
+Average Test Loss: 0.0223
+
+-----------------------------------------------
+
+mk5_1,
+channels 6->8->16->32->48, No Sigmoid, data Normalization,
+SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0085
+Average Test Loss: 0.0244
+
+
+-----------------------------------------------
+
+<<--- Keeping: No Sigmoid, data Normalization --->>
+
+
+mk6_1,
+channels  6->8->16->24->48, 
+Albumentations transforms,
+SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+100 epochs.
+Average Training Loss: 0.0177
+Average Test Loss: 0.0202
+
+
+-----------------------------------------------
+
+mk6_2,
+channels  6->8->16->24->48,  
+Albumentations transforms,
+SmoothL1,
+Scheduler ReduceLROnPlateau(factor=0.5, patience=10)
+
+SGD: lr=1e-2, momentum=0.9,
+100 epochs.
+Average Training Loss: 0.0192
+Average Test Loss: 0.0213
+
+
+-----------------------------------------------
+
+mk6_3,
+channels  6->8->16->24->48,  
+Albumentations transforms - Only flips,
+SmoothL1,
+StepLR(optimizer, step_size=10, gamma=0.5),
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0257
+Average Test Loss: 0.0284
+
+-----------------------------------------------
+
+mk6_4,
+channels  6->8->16->24->48,  
+Albumentations transforms - Only flips,
+SmoothL1,
+
+SGD: lr=2.5e-3, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0207
+Average Test Loss: 0.0256
+
+
+-----------------------------------------------
+
+mk6_5,
+channels  6->8->16->24->48,  
+Weighted SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0150, Average Test Loss: 0.0287
+
+SGD: lr=1e-3, momentum=0.9,
+40 epochs.
+xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+SGD: lr=1e-4, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0435, Average Test Loss: 0.0808
+
+
+-----------------------------------------------
+
+mk6_6,
+channels  6->8->16->24->48,  
+Weighted SmoothL1,
+Scheduler
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs,
+StepLR(step_size=10, gamma=0.1)
+Average Training Loss: 0.0386, Average Test Loss: 0.0696
+
+StepLR(step_size=10, gamma=0.2)
+Average Training Loss: 0.0248, Average Test Loss: 0.0363
+
+StepLR(step_size=5, gamma=0.5)
+Average Training Loss: 0.0458, Average Test Loss: 0.0705
+
+
+CosineAnnealingLR(optimizer, T_max=40, eta_min=0),
+Average Training Loss: 0.0418, Average Test Loss: 0.0695
+
+SGD: lr=1e-3, momentum=0.9,
+CosineAnnealingLR(optimizer, T_max=40, eta_min=0),
+Average Training Loss: 0.1361, Average Test Loss: 0.1229
+
+SGD: lr=1e-2, momentum=0.9,
+CosineAnnealingLR(optimizer, T_max=40, eta_min=1e-6),
+Average Training Loss: 0.1667, Average Test Loss: 0.1372
+
+
+SGD: lr=1e-2, momentum=0.9,
+ReduceLROnPlateau(factor=0.2, patience=5, threshold=1e-3, min_lr=1e-6),
+Average Training Loss: 0.0094, Average Test Loss: 0.0278
+
+SGD: lr=1e-2, momentum=0.9,
+ReduceLROnPlateau(factor=0.5, patience=5, threshold=1e-4, min_lr=1e-6),
+80 epochs,
+Average Training Loss: 0.0018, Average Test Loss: 0.0225
+
+
+
+-----------------------------------------------
+
+
+mk6_7,
+channels  6->8->16->24->48,  
+Albumentations transforms,
+Weighted SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs.
+Average Training Loss: 0.0214, Average Test Loss: 0.0242
+
+SGD: lr=1e-2, momentum=0.9,
+60 epochs.
+Average Training Loss: 0.0148, Average Test Loss: 0.0198
+
+
+-----------------------------------------------
+
+mk6_8,
+channels  6->8->16->24->48,  
+Albumentations transforms,
+Weighted SmoothL1,
+Scheduler
+
+SGD: lr=1e-2, momentum=0.9,
+60 epochs,
+ReduceLROnPlateau(factor=0.5, patience=5, threshold=1e-4, min_lr=1e-6)
+Average Training Loss: 0.0175, Average Test Loss: 0.0231
+
+-----------------------------------------------
+
+
+<<--- MARK 7 --->>
+
+channels 6->8->16->32->64,
+Residuals,
+Bottlenecking.
+
+
+
+mk7_1
+Albumentations transforms,
+Weighted SmoothL1,
+
+SGD: lr=1e-2, momentum=0.9,
+40 epochs,
+Average Training Loss: 0.0561, Average Test Loss: 0.0723
+
+SGD: lr=1e-3, momentum=0.9,
+40 epochs,
+Average Training Loss: 0.0589, Average Test Loss: 0.0919
+
+SGD: lr=1e-2, momentum=0.9,
+80 epochs,
+CosineAnnealingLR(T_max=80, eta_min=1e-5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
