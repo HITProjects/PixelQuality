@@ -1,0 +1,172 @@
+{
+  "dataset": {
+    "name": "LocJND (KonJND++)",
+    "source": "GitHub: angchen-dev/LocJND",
+    "num_source_images": 6,
+    "image_size": [ 640, 480 ],
+    "images": [
+      {
+        "image_id": "Study_SRC0013",
+        "set_type": "study",
+        "codec": "JPEG",
+        "reference_file": "Study_SRC0013.png",
+        "heatmap_file": "Study_SRC0013_HEAT.png",
+        "num_distortion_variants": 100,
+        "sample_distortion_filename": "Study_SRC0013_JPEG_075.jpg",
+        "heatmap_points": {
+          "width": 640,
+          "height": 480,
+          "points": [
+            {
+              "x": 67,
+              "y": 35
+            },
+            {
+              "x": 309,
+              "y": 53
+            },
+            {
+              "x": 417,
+              "y": 418
+            }
+          ]
+        }
+      },
+      {
+        "image_id": "Study_SRC0768",
+        "set_type": "study",
+        "codec": "BPG",
+        "reference_file": "Study_SRC0768.png",
+        "heatmap_file": "Study_SRC0768_HEAT.png",
+        "num_distortion_variants": 100,
+        "sample_distortion_filename": "Study_SRC0768_BPG_045.jpg",
+        "heatmap_points": {
+          "width": 640,
+          "height": 480,
+          "points": [
+            {
+              "x": 308,
+              "y": 194
+            },
+            {
+              "x": 409,
+              "y": 323
+            },
+            {
+              "x": 339,
+              "y": 396
+            }
+          ]
+        }
+      },
+      {
+        "image_id": "Test_SRC0027",
+        "set_type": "test",
+        "codec": "JPEG",
+        "reference_file": "Test_SRC0027.png",
+        "heatmap_file": "Test_SRC0027_HEAT.png",
+        "num_distortion_variants": 100,
+        "sample_distortion_filename": "Test_SRC0027_JPEG_090.jpg",
+        "heatmap_points": {
+          "width": 640,
+          "height": 480,
+          "points": [
+            {
+              "x": 111,
+              "y": 262
+            },
+            {
+              "x": 450,
+              "y": 41
+            },
+            {
+              "x": 566,
+              "y": 434
+            }
+          ]
+        }
+      },
+      {
+        "image_id": "Test_SRC0045",
+        "set_type": "test",
+        "codec": "JPEG",
+        "reference_file": "Test_SRC0045.png",
+        "heatmap_file": "Test_SRC0045_HEAT.png",
+        "num_distortion_variants": 100,
+        "sample_distortion_filename": "Test_SRC0045_JPEG_052.jpg",
+        "heatmap_points": {
+          "width": 640,
+          "height": 480,
+          "points": [
+            {
+              "x": 22,
+              "y": 49
+            },
+            {
+              "x": 189,
+              "y": 319
+            },
+            {
+              "x": 592,
+              "y": 304
+            }
+          ]
+        }
+      },
+      {
+        "image_id": "Test_SRC0058",
+        "set_type": "test",
+        "codec": "BPG",
+        "reference_file": "Test_SRC0058.png",
+        "heatmap_file": "Test_SRC0058_HEAT.png",
+        "num_distortion_variants": 100,
+        "sample_distortion_filename": "Test_SRC0058_BPG_085.jpg",
+        "heatmap_points": {
+          "width": 640,
+          "height": 480,
+          "points": [
+            {
+              "x": 14,
+              "y": 58
+            },
+            {
+              "x": 52,
+              "y": 428
+            },
+            {
+              "x": 498,
+              "y": 394
+            }
+          ]
+        }
+      },
+      {
+        "image_id": "Test_SRC0100",
+        "set_type": "test",
+        "codec": "PNG",
+        "reference_file": "Test_SRC0100.png",
+        "heatmap_file": "Test_SRC0100_HEAT.png",
+        "num_distortion_variants": 0,
+        "sample_distortion_filename": "Test_SRC0100_PNG_Distorted.png",
+        "heatmap_points": {
+          "width": 640,
+          "height": 480,
+          "points": [
+            {
+              "x": 109,
+              "y": 144
+            },
+            {
+              "x": 379,
+              "y": 50
+            },
+            {
+              "x": 373,
+              "y": 353
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
